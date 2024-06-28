@@ -1,5 +1,5 @@
 # PUAD
-Official implementation of the paper: [PUAD: Frustratingly Simple Method for Robust Anomaly Detection](https://arxiv.org/abs/2402.15143).
+Official implementation of the paper [PUAD: Frustratingly Simple Method for Robust Anomaly Detection](https://arxiv.org/abs/2402.15143), accepted at ICIP 2024.
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/puad-frustratingly-simple-method-for-robust-1/anomaly-detection-on-mvtec-loco-ad)](https://paperswithcode.com/sota/anomaly-detection-on-mvtec-loco-ad?p=puad-frustratingly-simple-method-for-robust-1)
 
 ## Abstract
