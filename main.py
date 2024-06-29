@@ -68,9 +68,9 @@ if __name__ == "__main__":
     print(f"efficient_ad auroc : {efficient_ad_auroc}")
 
     # PUAD
-    """puad = PUAD(feature_extractor=args.feature_extractor)
+    puad = PUAD(feature_extractor=args.feature_extractor)
     puad.load_efficient_ad(efficient_ad_inference)
     puad.train(train_dataset)
     puad.valid(valid_dataset)
     puad_auroc = puad.auroc(test_dataset)
-    print(f"puad auroc : {puad_auroc}")"""
+    print(f"puad auroc : {puad_auroc}")
