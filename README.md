@@ -90,20 +90,20 @@ After all models have been trained, After all models have been trained, the scri
 After training with `efficientad/train.py`, the pre-trained model files will be saved in the directory specified by `<model_dir_path>`. Below are the details for each file.
 
 Files generated when specifying `teacher` as the first argument to `efficientad/train.py`:
-- `<model_dir_path>/<size>_size/teacher/teacher.pt`: Weights of the teacher network
-- `<model_dir_path>/<size>_size/teacher/mu.pt`: Mean of the intermediate feature maps from WideResNet101 (the distillation source) when ImageNet is used as input
-- `<model_dir_path>/<size>_size/teacher/sigma.pt`: Standard deviation of the intermediate feature maps from WideResNet101 when ImageNet is used as input
+- `<model_dir_path>/<size>_size/teacher/teacher.pt`: Weights of the teacher network.
+- `<model_dir_path>/<size>_size/teacher/mu.pt`: Mean of the intermediate feature maps from WideResNet101 (the distillation source) when ImageNet is used as input.
+- `<model_dir_path>/<size>_size/teacher/sigma.pt`: Standard deviation of the intermediate feature maps from WideResNet101 when ImageNet is used as input.
 
 Files generated when specifying `student` as the first argument to `efficientad/train.py`:
-- `<model_dir_path>/<size>_size/<dataset_dir_name>/<dataset_name>/autoencoder.pt`: Weights of the AutoEncoder
-- `<model_dir_path>/<size>_size/<dataset_dir_name>/<dataset_name>/student.pt`: Weights of the student network
-- `<model_dir_path>/<size>_size/<dataset_dir_name>/<dataset_name>/mu.pt`: Mean of the intermediate feature maps from WideResNet101 when the dataset specified by `--dataset_path` is used as input
-- `<model_dir_path>/<size>_size/<dataset_dir_name>/<dataset_name>/sigma.pt`: Standard deviation of the intermediate feature maps from WideResNet101 when the dataset specified by `--dataset_path` is used as input
+- `<model_dir_path>/<size>_size/<dataset_dir_name>/<dataset_name>/autoencoder.pt`: Weights of the AutoEncoder.
+- `<model_dir_path>/<size>_size/<dataset_dir_name>/<dataset_name>/student.pt`: Weights of the student network.
+- `<model_dir_path>/<size>_size/<dataset_dir_name>/<dataset_name>/mu.pt`: Mean of the intermediate feature maps from WideResNet101 when the dataset specified by `--dataset_path` is used as input.
+- `<model_dir_path>/<size>_size/<dataset_dir_name>/<dataset_name>/sigma.pt`: Standard deviation of the intermediate feature maps from WideResNet101 when the dataset specified by `--dataset_path` is used as input.
 - `<model_dir_path>/<size>_size/<dataset_dir_name>/<dataset_name>/quantile.pt`: Dictionary containing the 0.9-quantile and 0.995-quantile values of anomaly scores from the student network and autoencoder for the validation dataset.
-  - `q_a_autoencoder`: 0.9-quantile of the output map from the AutoEncoder on training data (normal samples)
-  - `q_b_autoencoder`: 0.995-quantile of the output map from the AutoEncoder on training data (normal samples)
-  - `q_a_student`: 0.9-quantile of the output map from the student network on training data (normal samples)
-  - `q_b_student`: 0.995-quantile of the output map from the student network on training data (normal samples)
+  - `q_a_autoencoder`: 0.9-quantile of the output map from the AutoEncoder on training data (normal samples).
+  - `q_b_autoencoder`: 0.995-quantile of the output map from the AutoEncoder on training data (normal samples).
+  - `q_a_student`: 0.9-quantile of the output map from the student network on training data (normal samples).
+  - `q_b_student`: 0.995-quantile of the output map from the student network on training data (normal samples).
 - `<model_dir_path>/<size>_size/<dataset_dir_name>/<dataset_name>/results.txt`: EfficientAD performance at the end of training. Outputs the overall AUROC and the AUROC for each anomaly directory, considering the `good` directory in the `test` directory as normal and the others as anomalies.
 
 ### PUAD Training and Testing
@@ -132,7 +132,7 @@ AUROC scores of EfficientAD (S) and PUAD for each category on the MVTec LOCO AD 
 | breakfast box | 83.75 | 87.07 |
 | juice bottle | 97.90 | 99.68 |
 | pushpins | 96.84 | 98.02 |
-| screw bag | 71.28 | 84.35 |
+| screw bag | 71.28 | 84.36 |
 | splicing connectors | 96.33 | 96.76 |
 | mean | 89.22 | 93.18 |
 
