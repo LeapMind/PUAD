@@ -31,7 +31,7 @@ Download the datasets from the links below:
   - MVTec LOCO AD dataset includes both structural and logical anomalies. PUAD is designed to detect both types of anomalies.
  
 And you can get pre-trained EfficientAD models from the link below:
-- [Pre-trained EfficientAD models](https://drive.google.com/drive/folders/16W1haRK1GwIBsIyEwqrtNO4xgm5cjn8d?usp=sharing)
+- [Pre-trained EfficientAD models](https://drive.google.com/drive/folders/1-NDUVHFbLTI3CmL8FYSYFXpbLExRu_N5?usp=sharing)
 > **Note:** The pre-trained models are currently separated into folders for MVTec AD Dataset (`mvtec_ad_models`) and MVTec LOCO AD Dataset (`mvtec_loco_ad_models`). This is because they do not share a teacher network, but we plan to integrate them by sharing the teacher network and retraining in the future.
 
 For details about the pre-trained model files, please refer to the [Pre-trained model files](#pre-trained-model-files) section.
