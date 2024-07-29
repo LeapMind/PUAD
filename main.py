@@ -72,5 +72,8 @@ if __name__ == "__main__":
     puad.load_efficient_ad(efficient_ad_inference)
     puad.train(train_dataset)
     puad.valid(valid_dataset)
-    puad_auroc = puad.auroc(test_dataset)
+    puad_auroc, puad_auroc_for_anomalies = puad.auroc_for_anomalies(test_dataset)
+
     print(f"puad auroc : {puad_auroc}")
+    for anomaly_class, auroc_for_anomaly in puad_auroc_for_anomalies.items():
+        print(f"puad auroc for {anomaly_class}: {auroc_for_anomaly}")

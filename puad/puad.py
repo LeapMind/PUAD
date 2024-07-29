@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Dict, Union
 
 import numpy as np
 from puad.dataset import NormalDataset
@@ -74,3 +74,35 @@ class PUAD:
             anomaly_scores.append(self.test(img))
             targets.append(0 if label == dataset.class_to_idx["good"] else 1)
         return roc_auc_score(targets, anomaly_scores)
+
+    def auroc_for_anomalies(self, dataset: torchvision.datasets.ImageFolder) -> Dict[str, np.float64]:
+        idx_to_class = {i: c for c, i in dataset.class_to_idx.items()}
+
+        good_scores = []
+        good_targets = []
+        anomaly_scores = {}
+        anomaly_targets = {}
+        for img, label in dataset:
+            class_name = idx_to_class[label]
+            pred = self.test(img)
+            if class_name == "good":
+                good_scores.append(pred)
+                good_targets.append(0)
+            else:
+                if class_name not in anomaly_scores:
+                    anomaly_scores[class_name] = []
+                    anomaly_targets[class_name] = []
+                anomaly_scores[class_name].append(pred)
+                anomaly_targets[class_name].append(1)
+
+        scores = good_scores + sum(anomaly_scores.values(), [])
+        targets = good_targets + sum(anomaly_targets.values(), [])
+        auroc_score = roc_auc_score(targets, scores)
+
+        auroc_scores = {}
+        for anomaly_class in anomaly_scores.keys():
+            scores = good_scores + anomaly_scores[anomaly_class]
+            targets = good_targets + anomaly_targets[anomaly_class]
+            auroc_scores[anomaly_class] = roc_auc_score(targets, scores)
+
+        return auroc_score, auroc_scores
