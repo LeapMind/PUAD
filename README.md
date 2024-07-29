@@ -34,6 +34,8 @@ And you can get pre-trained EfficientAD models from the link below:
 - [Pre-trained EfficientAD models](https://drive.google.com/drive/folders/1-NDUVHFbLTI3CmL8FYSYFXpbLExRu_N5?usp=sharing)
 > **Note:** The pre-trained models are currently separated into folders for MVTec AD Dataset (`mvtec_ad_models`) and MVTec LOCO AD Dataset (`mvtec_loco_ad_models`). This is because they do not share a teacher network, but we plan to integrate them by sharing the teacher network and retraining in the future.
 
+> **Note:** We retrained EfficientAD (M) to reproduce the accuracy reported in the [original EfficientAD paper](https://arxiv.org/abs/2303.14535). As a result, the performance of PUAD (EfficientAD (M) + student output) improved beyond the accuracy reported in our ICIP2024 accepted paper. Therefore, we have updated the model and the table in [Results](#results) section.
+
 For details about the pre-trained model files, please refer to the [Pre-trained model files](#pre-trained-model-files) section.
 
 After preparing the datasets and pre-trained EfficientAD model, you can train and infer PUAD as follows:
@@ -139,12 +141,12 @@ AUROC scores of EfficientAD (S) and PUAD for each category on the MVTec LOCO AD 
 AUROC scores of EfficientAD (M) and PUAD for each category on the MVTec LOCO AD Dataset.
 | Category | EfficientAD (M) | PUAD (EfficientAD (M) + student output) |
 |:---:|:---:|:---:|
-| breakfast box | 85.90 | 89.18 |
-| juice bottle | 97.51 | 99.68 |
-| pushpins | 94.00 | 93.09 |
-| screw bag | 68.71 | 82.44 |
-| splicing connectors | 97.02 | 96.78 |
-| mean | 88.63 | 92.23 |
+| breakfast box | 85.66 | 90.45 |
+| juice bottle | 96.92 | 99.92 |
+| pushpins | 96.83 | 97.36 |
+| screw bag | 78.92 | 86.99 |
+| splicing connectors | 96.61 | 97.49 |
+| mean | 90.99 | 94.44 |
 
 Comparison of mean AUROC with conventional methods on the MVTec LOCO AD Dataset.
 | Method | AUROC |
@@ -154,10 +156,11 @@ Comparison of mean AUROC with conventional methods on the MVTec LOCO AD Dataset.
 | ComAD + PatchCore | 90.1 |
 | SINBAD | 86.8 |
 | EfficientAD (S, Our Implementation) | 89.2 |
-| EfficientAD (M, Our Implementation) | 88.6 |
+| EfficientAD (M, Our Implementation) | 91.0 |
 | EfficientAD (S, Original Paper) | 90.0 |
 | EfficientAD (M, Original Paper) | 90.7 |
-| PUAD | 93.2 |
+| PUAD (S) | 93.2 |
+| PUAD (M) | 94.4 |
 
 AUROC scores of EfficientAD (S) and PUAD (EfficientAD (S) + student output) for each category on the MVTec AD Dataset.
 | Category | EfficientAD (S) | PUAD (EfficientAD (S) + student output) |
